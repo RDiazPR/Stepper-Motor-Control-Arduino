@@ -1,0 +1,46 @@
+// subrutinas para controlar el stepper motor 28BYJ-348 con su controlador 
+// 
+// Hay tres formas para usar esta rutina: 
+//
+// pasos(cantidad), vuelta completa = 512
+//
+// vueltas(cantidad), vuelta completa = 1
+//
+// grados(cantidad), vuelta completa = 360
+//
+// el signo en la cantidad es la direccion: + = CCW, - = CW
+//
+//
+
+const char posArray[9] = { 0x08, 0x0C, 0x04, 0x06, 0x02, 0x03, 0x01, 0x09 };
+
+void setup() {
+
+DDRB = 0xFF; //The Port B Data Direction Register - read/write
+}
+
+void loop() {
+// put your main code here, to run repeatedly:
+
+//pasos(-512);
+//grados(360);
+
+vueltas(1);
+delay(1000);
+//vueltas(-1);
+delay(1000);
+
+} //end main loop
+
+void pasos(int N){  //dir: +N = front, -N = back , una vuelta = 512 pasos.
+for (int n = 0; n <= abs(N); n++){
+  for (int s = 0; s < 8; s++) {
+    if(N>=0) PORTB = posArray[s] ;
+    else PORTB = posArray[7-s] ;
+    delay(1); // delay es necesario
+     } // 8 steps
+} // repeat
+}// end function pasos
+
+void vueltas(int V) {pasos(V*512);};
+void grados(int G) {pasos(G/360*512);};
