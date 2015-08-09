@@ -42,5 +42,5 @@ for (int n = 0; n <= abs(N); n++){
 } // repeat
 }// end function pasos
 
-void vueltas(int V) {pasos(V*512);};
-void grados(int G) {pasos(G/360*512);};
+void vueltas(float V) {pasos(V*512);};
+void grados(float G) {pasos(G/360*512);};
