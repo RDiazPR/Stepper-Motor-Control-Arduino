@@ -1,18 +1,13 @@
 # arduino-stepper
 control stepper motor 28BYJ-348
 
-primera version (Codigo inicial):
+Initial code based on:
 http://www.instructables.com/id/BYJ48-Stepper-Motor/?ALLSTEPS
 
-segunda version (modificada):
-comentario de 'urkraft' en esta misma página
+User 'urkraft' on this same page greatly simplified the code in the comment section. My contribution uses the same idea and simplifies the application with one of three possible commands:
 
-Hay tres formas de usar esta rutina: 
+pasos(N)
+vueltas(N)
+grados(N)
 
-pasos(cantidad), vuelta completa = 512
-
-vueltas(cantidad), vuelta completa = 1
-
-grados(cantidad), vuelta completa = 360
-
-el signo en la cantidad es la direccion: + = CCW, - = CW
+'N' is the quantity; its sign will indicate the direction (CW or CCW). For reference: 1 Turn = 360 degrees = 512 steps.  
