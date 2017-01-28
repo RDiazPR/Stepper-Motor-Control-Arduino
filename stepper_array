@@ -20,27 +20,25 @@ DDRB = 0xFF; //The Port B Data Direction Register - read/write
 }
 
 void loop() {
-// put your main code here, to run repeatedly:
 
-//pasos(-512);
-//grados(360);
 
-vueltas(1);
+//steps(-512);
+//degrees(360);
+revolutions(1);
 delay(1000);
-//vueltas(-1);
-delay(1000);
+
 
 } //end main loop
 
-void pasos(int N){  //dir: +N = front, -N = back , una vuelta = 512 pasos.
+void steps(int N){ 
 for (int n = 0; n <= abs(N); n++){
   for (int s = 0; s < 8; s++) {
     if(N>=0) PORTB = posArray[s] ;
     else PORTB = posArray[7-s] ;
-    delay(1); // delay es necesario
-     } // 8 steps
-} // repeat
-}// end function pasos
+    delay(1); // must include this short delay!
+     } // 8 total combinations
+} // repeat N times
+}// end function steps
 
-void vueltas(float V) {pasos(V*512);};
-void grados(float G) {pasos(G/360*512);};
+void revolutions(float V) {steps(V*512);};
+void degrees(float G) {steps(G/360*512);};
