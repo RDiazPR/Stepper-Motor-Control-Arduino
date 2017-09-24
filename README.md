@@ -1,5 +1,5 @@
 # arduino-stepper
-control stepper motor 28BYJ-348
+control stepper motor 28BYJ-48
 
 Initial code based on:
 http://www.instructables.com/id/BYJ48-Stepper-Motor/?ALLSTEPS
