@@ -23,7 +23,7 @@ void loop() {
 
 
 //steps(-512);
-//degrees(360);
+//grados(360);
 revolutions(1);
 delay(1000);
 
@@ -33,12 +33,12 @@ delay(1000);
 void steps(int N){ 
 for (int n = 0; n <= abs(N); n++){
   for (int s = 0; s < 8; s++) {
-    if(N>=0) PORTB = posArray[s] ;
-    else PORTB = posArray[7-s] ;
+    if(N>=0) PORTB = posArray[s] ; //count up
+    else PORTB = posArray[7-s] ; //count down
     delay(1); // must include this short delay!
      } // 8 total combinations
 } // repeat N times
 }// end function steps
 
 void revolutions(float V) {steps(V*512);};
-void degrees(float G) {steps(G/360*512);};
+void grados(float G) {steps(G/360*512);};
